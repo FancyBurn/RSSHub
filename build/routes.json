@@ -5536,13 +5536,15 @@
         ],
         "location": "tv/group/topic.ts"
       },
-      "/tv/followrank": {
-        "path": "/tv/followrank",
+      "/:type/followrank": {
+        "path": "/:type/followrank",
         "categories": [
           "anime"
         ],
-        "example": "/bangumi/tv/followrank",
-        "parameters": {},
+        "example": "/bangumi/anime/followrank",
+        "parameters": {
+          "type": "类型：anime - 动画, book - 图书, music - 音乐, game - 游戏, real - 三次元"
+        },
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,
@@ -5554,15 +5556,16 @@
         "radar": [
           {
             "source": [
-              "bgm.tv/anime"
-            ]
+              "bgm.tv/:type"
+            ],
+            "target": "/:type/followrank"
           }
         ],
-        "name": "成员关注动画榜",
+        "name": "成员关注榜",
         "maintainers": [
-          "honue"
+          "honue",
+          "zhoukuncheng"
         ],
-        "url": "bgm.tv/anime",
         "location": "tv/other/followrank.ts"
       },
       "/tv/person/:id": {
@@ -34718,6 +34721,112 @@
     "name": "lovelive-anime",
     "url": "www.lovelive-anime.jp"
   },
+  "lrepacks": {
+    "routes": {
+      "/:category?": {
+        "path": "/:category?",
+        "name": "REPACK скачать",
+        "url": "lrepacks.net",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "example": "/lrepacks",
+        "parameters": {
+          "category": "Category, Homepage by default"
+        },
+        "description": ":::tip\n  If you subscribe to [Системные программы](https://lrepacks.net/repaki-sistemnyh-programm/)，where the URL is `https://lrepacks.net/repaki-sistemnyh-programm/`, extract the part `https://lrepacks.net/` to the end, which is `repaki-sistemnyh-programm`, and use it as the parameter to fill in. Therefore, the route will be [`/lrepacks/repaki-sistemnyh-programm`](https://rsshub.app/lrepacks/repaki-sistemnyh-programm).\n\n  | Category                                                                        | ID                                                                                           |\n  | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |\n  | [Новые репаки на сегодня](https://lrepacks.net/novye-repaki-elchupacabra/)      | [novye-repaki-elchupacabra](https://rsshub.app/lrepacks/novye-repaki-elchupacabra)           |\n  | [Системные программы](https://lrepacks.net/repaki-sistemnyh-programm/)          | [repaki-sistemnyh-programm](https://rsshub.app/lrepacks/repaki-sistemnyh-programm)           |\n  | [Программы для графики](https://lrepacks.net/repaki-programm-dlya-grafiki/)     | [repaki-programm-dlya-grafiki](https://rsshub.app/lrepacks/repaki-programm-dlya-grafiki)     |\n  | [Программы для интернета](https://lrepacks.net/repaki-programm-dlya-interneta/) | [repaki-programm-dlya-interneta](https://rsshub.app/lrepacks/repaki-programm-dlya-interneta) |\n  | [Мультимедиа программы](https://lrepacks.net/repaki-multimedia-programm/)       | [repaki-multimedia-programm](https://rsshub.app/lrepacks/repaki-multimedia-programm)         |\n  | [Программы для офиса](https://lrepacks.net/repaki-programm-dlya-ofisa/)         | [repaki-programm-dlya-ofisa](https://rsshub.app/lrepacks/repaki-programm-dlya-ofisa)         |\n  | [Разные программы](https://lrepacks.net/repaki-raznyh-programm/)                | [repaki-raznyh-programm](https://rsshub.app/lrepacks/repaki-raznyh-programm)                 |\n  | [Системные библиотеки](https://lrepacks.net/sistemnye-biblioteki/)              | [sistemnye-biblioteki](https://rsshub.app/lrepacks/sistemnye-biblioteki)                     |\n  | [Важная информация](https://lrepacks.net/informaciya/)                          | [informaciya](https://rsshub.app/lrepacks/informaciya)                                       |\n  :::",
+        "categories": [
+          "program-update"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "lrepacks.net/:category"
+            ]
+          },
+          {
+            "title": "Новые репаки на сегодня",
+            "source": [
+              "lrepacks.net/novye-repaki-elchupacabra/"
+            ],
+            "target": "/novye-repaki-elchupacabra"
+          },
+          {
+            "title": "Системные программы",
+            "source": [
+              "lrepacks.net/repaki-sistemnyh-programm/"
+            ],
+            "target": "/repaki-sistemnyh-programm"
+          },
+          {
+            "title": "Программы для графики",
+            "source": [
+              "lrepacks.net/repaki-programm-dlya-grafiki/"
+            ],
+            "target": "/repaki-programm-dlya-grafiki"
+          },
+          {
+            "title": "Программы для интернета",
+            "source": [
+              "lrepacks.net/repaki-programm-dlya-interneta/"
+            ],
+            "target": "/repaki-programm-dlya-interneta"
+          },
+          {
+            "title": "Мультимедиа программы",
+            "source": [
+              "lrepacks.net/repaki-multimedia-programm/"
+            ],
+            "target": "/repaki-multimedia-programm"
+          },
+          {
+            "title": "Программы для офиса",
+            "source": [
+              "lrepacks.net/repaki-programm-dlya-ofisa/"
+            ],
+            "target": "/repaki-programm-dlya-ofisa"
+          },
+          {
+            "title": "Разные программы",
+            "source": [
+              "lrepacks.net/repaki-raznyh-programm/"
+            ],
+            "target": "/repaki-raznyh-programm"
+          },
+          {
+            "title": "Системные библиотеки",
+            "source": [
+              "lrepacks.net/sistemnye-biblioteki/"
+            ],
+            "target": "/sistemnye-biblioteki"
+          },
+          {
+            "title": "Важная информация",
+            "source": [
+              "lrepacks.net/informaciya/"
+            ],
+            "target": "/informaciya"
+          }
+        ],
+        "location": "index.ts"
+      }
+    },
+    "name": "REPACK скачать",
+    "url": "lrepacks.net",
+    "categories": [
+      "program-update"
+    ],
+    "description": ""
+  },
   "lsnu": {
     "routes": {
       "/jiaowc/tzgg/:category?": {
@@ -42884,6 +42993,57 @@
     },
     "name": "Outage.Report",
     "url": "outage.report"
+  },
+  "p-articles": {
+    "routes": {
+      "/contributors/:author": {
+        "path": "/contributors/:author",
+        "categories": [
+          "reading"
+        ],
+        "example": "/p-articles/contributors/黃衍仁",
+        "parameters": {
+          "author": "虛詞作者, 可在作者页面 URL 找到"
+        },
+        "name": "虛詞作者",
+        "maintainers": [
+          "Insomnia1437"
+        ],
+        "radar": [
+          {
+            "source": [
+              "p-articles.com/contributors/:author"
+            ]
+          }
+        ],
+        "location": "contributors.ts"
+      },
+      "/section/:section": {
+        "path": "/section/:section",
+        "categories": [
+          "reading"
+        ],
+        "example": "/p-articles/section/critics",
+        "parameters": {
+          "section": "版块名称, 可在对应版块 URL 中找到, 子版块链接用`-`连接"
+        },
+        "name": "版块",
+        "maintainers": [
+          "Insomnia1437"
+        ],
+        "radar": [
+          {
+            "source": [
+              "p-articles.com/:section/"
+            ]
+          }
+        ],
+        "location": "section.ts"
+      }
+    },
+    "name": "虚词",
+    "url": "p-articles.com",
+    "description": "\n:::tip\np-articles provides some official RSS feeds:\n\n-   section: `https://p-articles.com/section/:section`\n-   contributors: `https://p-articles.com/contributors/:author`\n:::"
   },
   "panewslab": {
     "routes": {

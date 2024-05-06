@@ -1424,12 +1424,12 @@
         "target": "/bangumi/tv/group/:id"
       },
       {
-        "title": "成员关注动画榜",
+        "title": "成员关注榜",
         "docs": "https://docs.rsshub.app/routes/anime",
         "source": [
-          "/anime"
+          "/:type"
         ],
-        "target": "/bangumi/tv/followrank"
+        "target": "/bangumi/:type/followrank"
       },
       {
         "title": "现实人物的新作品",
@@ -9197,6 +9197,91 @@
       }
     ]
   },
+  "lrepacks.net": {
+    "_name": "REPACK скачать",
+    ".": [
+      {
+        "title": "REPACK скачать",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/:category"
+        ],
+        "target": "/lrepacksparams=>{const category=params.category;return`/lrepacks${category?`/${category}`:\"\"}`}"
+      },
+      {
+        "title": "Новые репаки на сегодня",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/novye-repaki-elchupacabra/"
+        ],
+        "target": "/lrepacks/novye-repaki-elchupacabra"
+      },
+      {
+        "title": "Системные программы",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/repaki-sistemnyh-programm/"
+        ],
+        "target": "/lrepacks/repaki-sistemnyh-programm"
+      },
+      {
+        "title": "Программы для графики",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/repaki-programm-dlya-grafiki/"
+        ],
+        "target": "/lrepacks/repaki-programm-dlya-grafiki"
+      },
+      {
+        "title": "Программы для интернета",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/repaki-programm-dlya-interneta/"
+        ],
+        "target": "/lrepacks/repaki-programm-dlya-interneta"
+      },
+      {
+        "title": "Мультимедиа программы",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/repaki-multimedia-programm/"
+        ],
+        "target": "/lrepacks/repaki-multimedia-programm"
+      },
+      {
+        "title": "Программы для офиса",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/repaki-programm-dlya-ofisa/"
+        ],
+        "target": "/lrepacks/repaki-programm-dlya-ofisa"
+      },
+      {
+        "title": "Разные программы",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/repaki-raznyh-programm/"
+        ],
+        "target": "/lrepacks/repaki-raznyh-programm"
+      },
+      {
+        "title": "Системные библиотеки",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/sistemnye-biblioteki/"
+        ],
+        "target": "/lrepacks/sistemnye-biblioteki"
+      },
+      {
+        "title": "Важная информация",
+        "docs": "https://docs.rsshub.app/routes/program-update",
+        "source": [
+          "/informaciya/"
+        ],
+        "target": "/lrepacks/informaciya"
+      }
+    ]
+  },
   "lsnu.edu.cn": {
     "_name": "乐山师范学院",
     ".": [
@@ -11103,6 +11188,27 @@
           "/:name/issue"
         ],
         "target": "/oup/journals/:name"
+      }
+    ]
+  },
+  "p-articles.com": {
+    "_name": "虚词",
+    ".": [
+      {
+        "title": "虛詞作者",
+        "docs": "https://docs.rsshub.app/routes/reading",
+        "source": [
+          "/contributors/:author"
+        ],
+        "target": "/p-articles/contributors/:author"
+      },
+      {
+        "title": "版块",
+        "docs": "https://docs.rsshub.app/routes/reading",
+        "source": [
+          "/:section/"
+        ],
+        "target": "/p-articles/section/:section"
       }
     ]
   },
